@@ -3,4 +3,4 @@
 
 exec \
     s6-notifyoncheck -d -n 300 -w 1000 -c "nc -z localhost 7777" \
-    s6-setuidgid root $(which nginx) "-g daemon off;"
+    s6-setuidgid root $(which nginx) "-g daemon off; worker_processes 2;"

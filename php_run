@@ -3,4 +3,4 @@
 
 exec \
     s6-notifyoncheck -d -n 300 -w 1000 -c "nc -z localhost 9000" \
-    s6-setuidgid root $(which php-fpm81) -F -R;
+    s6-setuidgid root $(which php-fpm81) -F;
