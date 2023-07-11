@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+function __fixdouban {
+    echo "修复豆瓣图片链接问题index.js"
+    sed -i 's|${card.image}|${"http://127.0.0.1:7777/douban.php?link= +card.image}|' \
+        /nas-tools/web/static/components/page/discovery/index.js
+}
+
+__fixdouban 2>&1 | sed "s#^#cont-init: info: $(realpath $0): &#g"
